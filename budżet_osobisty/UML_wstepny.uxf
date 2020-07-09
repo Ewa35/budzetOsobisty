@@ -11,7 +11,7 @@
     </coordinates>
     <panel_attributes>PersonalBudget
 --
-- userManadzer:UserManadzer
+- userManager:UserManager
 --
 + userRegistration(): void
 + loginUser(): void
@@ -46,11 +46,11 @@
     <id>UMLClass</id>
     <coordinates>
       <x>371</x>
-      <y>119</y>
+      <y>112</y>
       <w>210</w>
-      <h>91</h>
+      <h>98</h>
     </coordinates>
-    <panel_attributes>UserManadzer
+    <panel_attributes>UserManager
 --
 - users: vecor&lt;User&gt;
 --
@@ -192,8 +192,8 @@ incomes:vector&lt;Income&gt;
     <coordinates>
       <x>721</x>
       <y>455</y>
-      <w>119</w>
-      <h>112</h>
+      <w>203</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>FileWithIncomes
 --
