@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1594331251 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
+
+1514144174 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
+	<iostream>
+
+1594331194 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
+
+1594333296 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
+	"User.h"
+
+1594333296 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.h
+	<iostream>
+
