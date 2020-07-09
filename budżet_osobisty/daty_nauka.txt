@@ -1,0 +1,121 @@
+#include <iostream>
+#include <time.h>
+#include <conio.h>
+#include <cstdlib>
+#include <sstream>
+#include <iomanip>
+using namespace std;
+
+void conversionCharONInt(char *date,int &day, int &month, int &year );
+long long int dateToSeconds(int year, int month, int day);
+void compareDates();
+int numberDaysOfTheMonth (int monthNumber, int year)
+{
+    int numberDaysInAMonth=0;
+    switch(monthNumber)
+    {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            numberDaysInAMonth=31;
+        break;
+
+        case 4: case 6: case 9: case 11:
+            numberDaysInAMonth=30;
+        break;
+
+        case 2:
+            {
+
+if (((year%4 == 0) && (year%100 != 0)) || (year%400 == 0))
+   numberDaysInAMonth=29;
+else numberDaysInAMonth=28;
+
+            }
+        break;
+
+        default: cout<<"Niepoprawny numer miesiaca!";
+
+    }
+return numberDaysInAMonth;
+}
+void todaysDate()
+{
+    time_t czas;
+    tm *data;
+   char date [11];
+   time( & czas );
+    data = localtime( & czas );
+    strftime( date, 11, "%d-%m-%Y", data );
+    cout<<date;
+}
+void conversionCharONInt(char *dat, int &day, int &month, int &year)
+{
+
+    string sday, smonth, syear;
+   for (int i=0; i<11; i++)
+{
+    if (i==0 || i==1)
+    {
+        sday+=dat[i];
+    }
+    if (i==3 || i==4)
+    {
+        smonth+=dat[i];
+    }
+    if (i>=6 & i<10)
+    {
+        syear+=dat[i];
+    }
+}
+day = atoi(sday.c_str());
+month = atoi(smonth.c_str());
+year = atoi(syear.c_str());
+
+}
+long long int dateToSeconds(int day, int month, int year)
+{
+    time_t time1;
+    struct tm * date;
+    time( & time1 );
+    date = localtime( & time1);
+    date->tm_year = year - 1900;
+    date->tm_mon = month - 1;
+    date->tm_mday = day;
+    long long int timeInSeconds= mktime( date );
+    cout<<timeInSeconds;
+    return mktime( date );
+}
+void compareDates()
+{
+    char date1[11]="04-07-2010", date2[11]="05-07-2000";
+    int day=0, month=0, year=0;
+    long long int timeInSeconds1, timeInSeconds2;
+    /*cout<<"Podaj date pierwsza w formacie dd-mm-rrrr"<<endl;
+    cin>>date1;
+    cout<<"Podaj date drugą w formacie dd-mm-rrrr"<<endl;
+    cin>>date2;*/
+    conversionCharONInt(date1, day, month, year);
+    timeInSeconds1=dateToSeconds(day, month, year);
+    conversionCharONInt(date2, day, month, year);
+    timeInSeconds2=dateToSeconds(day, month, year);
+
+    if (timeInSeconds1==timeInSeconds2)
+    {
+        cout<<" Daty sa takie same";
+    }
+    if (timeInSeconds1<timeInSeconds2)
+    {
+        cout<<" Data pierwsza jest wczesniejsza";
+    }
+    if (timeInSeconds1>timeInSeconds2)
+    {
+        cout<<" Data druga jest wczesniejsza";
+    }
+}
+
+int main()
+{
+    //cout<<numberDaysOfTheMonth(2,2020);
+    //compareDates();
+
+    return 0;
+}
