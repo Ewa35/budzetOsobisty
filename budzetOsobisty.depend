@@ -1,14 +1,37 @@
 # depslib dependency file v1.0
-1594331251 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
+1594602135 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
+	"FileWithUsers.h"
 
-1514144174 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
+1594602135 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
 	<iostream>
+	"User.h"
+	"UserManager.h"
 
-1594331194 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
+1594602445 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
+	"UserManager.h"
 
-1594333296 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
+1594334293 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
 	"User.h"
 
-1594333296 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.h
+1594334293 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.h
 	<iostream>
+
+1594602094 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
+	<iostream>
+	<vector>
+	<stdlib.h>
+	"User.h"
+	"FileWithUsers.h"
+
+1594603002 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
+	<iostream>
+	<sstream>
+	"User.h"
+	"Markup.h"
+
+1593538023 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\markup.h
+	<stdlib.h>
+	<string.h>
+	<string>
+	<afx.h>
 

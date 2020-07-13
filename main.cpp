@@ -1,8 +1,34 @@
 #include <iostream>
 #include "User.h"
+#include "UserManager.h"
 using namespace std;
 
 int main()
+{
+    UserManager userManager;
+    userManager.userRegistration();
+    userManager.wypisz();
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*int main()
 {
     User user;
     user.setId(1);
@@ -17,4 +43,4 @@ int main()
     cout << user.getLogin() << endl;
     cout << user.getPassword() << endl;
     return 0;
-}
+}*/
