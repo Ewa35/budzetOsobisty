@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1596417489 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
+1596418763 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
 	"FileWithUsers.h"
 
-1596415753 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
+1596418763 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
 	<iostream>
 	"User.h"
 	"UserManager.h"
 
-1596417445 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
+1596418763 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
 	"UserManager.h"
 
 1594334293 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
@@ -16,7 +16,7 @@
 1594334293 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.h
 	<iostream>
 
-1596415427 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
+1596418763 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
 	<iostream>
 	<vector>
 	<stdlib.h>
@@ -24,7 +24,7 @@
 	"FileWithUsers.h"
 	"AuxiliartMethods.h"
 
-1596417420 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
+1596418763 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
 	<iostream>
 	<sstream>
 	<fstream>
@@ -46,9 +46,9 @@
 	<windows.h>
 	<mbstring.h>
 
-1596238402 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.h
+1596418763 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.h
 	<iostream>
 
-1596238339 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.cpp
+1596418763 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.cpp
 	"AuxiliartMethods.h"
 
