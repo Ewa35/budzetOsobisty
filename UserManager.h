@@ -7,19 +7,22 @@
 
 #include "User.h"
 #include "FileWithUsers.h"
+#include "AuxiliartMethods.h"
 using namespace std;
 
 class UserManager{
 
 vector <User> users;
 FileWithUsers fileWithUsers;
-
+int loggedUserId;
 public:
 void userRegistration();
 User giveDataNewUser();
 int downloadNewUserId();
+void loadUsersFromFile();
 void  wypisz();
-
+void loginUser();
+void changePasswordOfLoggedInUser();
 
 
 

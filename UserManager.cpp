@@ -46,3 +46,72 @@ void UserManager :: wypisz()
         cout<<users[i].getPassword()<<endl;
     }
 }
+void UserManager ::loadUsersFromFile()
+{
+    users=fileWithUsers.loadUsersFromFile();
+    wypisz();
+}
+void UserManager ::loginUser()
+{
+    User user;
+    int amountOfUsers=0;
+    string userLogin = "", userPassword = "";
+
+    cout << endl << "Podaj login: ";
+    userLogin = AuxiliartMethods::loadLine();
+
+    for (int i=0; i<users.size(); i++) {
+        if (users[i].getLogin() == userLogin) {
+                amountOfUsers++;
+            for (int numberOfAttempts = 3; numberOfAttempts > 0; numberOfAttempts--) {
+                cout << "Podaj haslo. Pozostalo prob: " << numberOfAttempts << ": ";
+                userPassword= AuxiliartMethods::loadLine();
+
+                if (users[i].getPassword() == userPassword) {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    loggedUserId=users[i].getId();
+                    system("pause");
+                    numberOfAttempts=0;
+                }
+                else if (numberOfAttempts==0 && loggedUserId==0) {
+                    cout << "Wprowadzono 3 razy bledne haslo." << endl;
+                    system("pause");
+                    loggedUserId=0;
+                }
+            }
+        }
+    }
+    if (amountOfUsers==0)
+            {
+                cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+                system("pause");
+            }
+
+}
+void UserManager ::changePasswordOfLoggedInUser() {
+        string  newPassword = "";
+        string lineWithData="";
+        cout << "Podaj nowe haslo: ";
+        newPassword = AuxiliartMethods::loadLine();
+
+        /*for (int i=0; i<users.size(); i++) {
+            if (users[i].getId() == loggedUserId) {
+                users[i].setPassword(newPassword);
+                cout << "Haslo zostalo zmienione." << endl << endl;
+                system("pause");
+            }
+        }*/
+        for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+                 if (itr->getId() == loggedUserId)
+                 {
+                     itr->setPassword(newPassword);
+                     cout << "Haslo zostalo zmienione." << endl << endl;
+                    system("pause");
+                    lineWithData=fileWithUsers.replaceUserDataForDataLinesSeparatedByVerticalLines(*itr);
+                 }
+        }
+
+
+
+        fileWithUsers.saveTheNewPasswordInAFile(lineWithData,loggedUserId);
+    }

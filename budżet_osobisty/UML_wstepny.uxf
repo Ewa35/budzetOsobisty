@@ -30,15 +30,17 @@
     <coordinates>
       <x>231</x>
       <y>119</y>
-      <w>98</w>
-      <h>70</h>
+      <w>105</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>User
 --
+- id: int 
 - name: string 
 - lastName: string
 - login: string
 - password: string
+
 --</panel_attributes>
     <additional_attributes/>
   </element>
@@ -294,13 +296,13 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>322</x>
+      <x>329</x>
       <y>154</y>
-      <w>63</w>
+      <w>56</w>
       <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

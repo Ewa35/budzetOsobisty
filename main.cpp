@@ -5,9 +5,14 @@ using namespace std;
 
 int main()
 {
+
     UserManager userManager;
-    userManager.userRegistration();
-    userManager.wypisz();
+    //userManager.userRegistration();
+    userManager.loadUsersFromFile();
+    userManager.loginUser();
+
+   // userManager.wypisz();
+   userManager.changePasswordOfLoggedInUser();
 
 
     return 0;
