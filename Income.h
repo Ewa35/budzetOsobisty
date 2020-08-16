@@ -18,7 +18,7 @@ public:
     void setId (int newId);
     void setIncomeCategory (string newIncomeCategory);
     void setDate (int newDate);
-    void setValue (int newValue);
+    void setValue (double newValue);
 
     int getUserId();
     int getId();

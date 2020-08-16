@@ -8,12 +8,13 @@
 
 #include "User.h"
 #include "Markup.h"
+#include "AuxiliartMethods.h"
+
 
 using namespace std;
 class FileWithUsers
 {
 
-    string conversionIntForString(int number);// zrobliæ klase metodu pomocnicze
     public:
     void addUsersToFile(User user);
    vector<User> loadUsersFromFile();

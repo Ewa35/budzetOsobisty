@@ -1,9 +1,24 @@
 #include <iostream>
 #include "User.h"
 #include "UserManager.h"
+#include "IncomeManager.h"
 using namespace std;
 
+
 int main()
+{
+
+   IncomeManager in;
+    in.addIncome();
+
+    return 0;
+}
+
+
+
+
+
+/*int main()
 {
 
     UserManager userManager;
@@ -16,7 +31,7 @@ int main()
 
 
     return 0;
-}
+}*/
 
 
 
