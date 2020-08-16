@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Incomes>
+<user1>
+<Income1>1|1|20200810|dom|10.000|</Income1>
+<Income1>1|1|20200810|hop|1.000|</Income1>
+<Income2>1|2|20200810|w|2.000|</Income2>
+<Income1>1|1|20200810|folia|123.000|</Income1>
+<Income1>1|1|20200810|ola|33.000|</Income1>
+<Income1>1|1|20200810|d|2.000000|</Income1>
+<Income1>1|1|20200810|y|33.220|</Income1>
+<Income1>1|1|20200810|d|3.000|</Income1>
+<Income1>1|1|20200811|blabla|22.330|</Income1>
+</user1>
+<user1>
+<Income2>1|2|20190120|rok|30.000|</Income2>
+</user1>
+</Incomes>
