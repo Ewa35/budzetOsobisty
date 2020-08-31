@@ -7,13 +7,14 @@ using namespace std;
 
 class Income{
 
-int userId;
-int id;
-string incomeCategory;
-int date;
-double value;
+ int userId;
+ int id;
+ string category;
+ int date;
+ double value;
 
 public:
+
     void setUserId (int newUserId);
     void setId (int newId);
     void setIncomeCategory (string newIncomeCategory);
@@ -25,6 +26,7 @@ public:
     string getIncomeCategory();
     int getDate();
     double getValue();
+
 
 };
 #endif

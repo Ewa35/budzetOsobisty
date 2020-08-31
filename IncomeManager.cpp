@@ -9,10 +9,10 @@ Income IncomeManager::addIncome()
     incomes.push_back(income);
     if(fileWithIncomes.saveIncomeToFile(income))
     {
-        cout<<"Nowy adresat zostal dodany."<<endl;
+        cout<<"Dochod zostal dodany."<<endl;
     }
     else
-        cout<<"Blad. Nie udalo sie dodac nowego adresata do pliku." <<endl;
+        cout<<"Blad. Nie udalo sie dodac nowego dochodu do pliku." <<endl;
     system("pause");
 }
 
@@ -70,4 +70,155 @@ int IncomeManager :: getIncomeId() {
         return 1;
     else
         return incomes.back().getId() + 1;
+}
+void IncomeManager :: loadIncomesFromFile()
+{
+    incomes=fileWithIncomes.loadIncomesFromFile();
+    sort( incomes.begin(), incomes.end(), before() );
+    // wypisz();
+}
+void IncomeManager  :: wypisz()
+{
+
+    for (int i=0; i<incomes.size(); i++)
+    {
+        cout<<incomes[i].getUserId()<<"  ";
+        cout<<incomes[i].getId()<<"  ";
+        cout<<incomes[i].getIncomeCategory()<<"  ";
+        cout<<OperationsOnDates::changeTheDateFormat(incomes[i].getDate())<<"  ";
+        cout<<incomes[i].getValue()<<endl;
+    }
+}
+void IncomeManager  :: balanceForTheCurrentMonth()
+{
+    string currentDate="", firstDayOfTheMonth="", lastDayOfTheMonth="";
+    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    currentDate=OperationsOnDates::todaysDate();
+    firstDayOfTheMonth=downloadFirstDayOfTheMonth(currentDate);
+    lastDayOfTheMonth=downloadLastDayOfTheMonth(currentDate);
+    integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
+    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
+
+   for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
+           if (itr->getDate() >=integerFirstDayOfTheMonth && itr->getDate()<=integerLastDayOfTheMonth){
+                displayIncomeData(*itr);
+    }
+    }
+}
+
+string IncomeManager  ::downloadFirstDayOfTheMonth(string currentDate)
+{
+    string firstDayOfTheMonth;
+    for (int i=0; i<=currentDate.length(); i++)
+    {
+        if (i==8)
+        {
+            firstDayOfTheMonth+="0";
+        }
+        else if (i==9)
+        {
+            firstDayOfTheMonth+="1";
+        }
+        else
+            firstDayOfTheMonth+=currentDate[i];
+    }
+    return firstDayOfTheMonth;
+}
+string IncomeManager  ::downloadLastDayOfTheMonth(string currentDate)
+{
+    string lastDayOfTheMonth;
+    for (int i=0; i<=currentDate.length()-3; i++)
+    {
+
+            lastDayOfTheMonth+=currentDate[i];
+    }
+    lastDayOfTheMonth+=OperationsOnDates::getNumberDaysOfTheMonth(currentDate);
+    return lastDayOfTheMonth;
+}
+void IncomeManager  ::displayIncomeData (Income income)
+{
+    cout<<endl<<income.getId()<<"  kategoria dochodu:  "<< income.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(income.getDate())<<"  watrosc dochodu:  "<< income.getValue();
+}
+void IncomeManager  :: balanceForThePreviousMonth()
+{
+    string currentDate="", dateOfThePreviousMonth="", firstDayOfTheMonth="", lastDayOfTheMonth="";
+    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    currentDate=OperationsOnDates::todaysDate();
+    dateOfThePreviousMonth=SetTheDateBackOneMonth(currentDate);
+    firstDayOfTheMonth=downloadFirstDayOfTheMonth(dateOfThePreviousMonth);
+    lastDayOfTheMonth=downloadLastDayOfTheMonth(dateOfThePreviousMonth);
+    integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
+    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
+
+   for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
+           if (itr->getDate() >=integerFirstDayOfTheMonth && itr->getDate()<=integerLastDayOfTheMonth){
+                displayIncomeData(*itr);
+    }
+    }
+}
+ string IncomeManager  ::SetTheDateBackOneMonth(string date)
+ {
+     string month="";
+     int monthNumber=0;
+    month[0]=date[5];
+    month[1]=date[6];
+    monthNumber=atoi(month.c_str());
+    if (monthNumber==1)
+    {
+        monthNumber=12;
+        date=SetTheDateBackOneYear(date);
+    }
+    else{
+        monthNumber-=1;
+    }
+    month=AuxiliartMethods::conversionIntForString(monthNumber);
+    if (monthNumber<10)
+    {
+        date[5]='0';
+        date[6]=month[0];
+    }
+    else{
+        date[5]=month[0];
+        date[6]=month[1];
+    }
+    return date;
+ }
+string IncomeManager  ::SetTheDateBackOneYear(string date)
+{
+    string year="";
+    int numberYear=0;
+for (int i=0; i<=3; i++)
+{
+    year+=date[i];
+}
+numberYear=atoi(year.c_str());
+numberYear--;
+year=AuxiliartMethods::conversionIntForString(numberYear);
+for (int i=0; i<=3; i++)
+{
+    date[i]=year[i];
+}
+return date;
+}
+void IncomeManager  ::incomeBalanceForTheSelectedPeriod()
+{
+    string startingDateOfTheBalance="", endDateOfTheBalance="";
+    int startingDate=0, endDate=0;
+    cout<<"Podaj date, od ktorej chcesz wyswietlic bilans"<<endl;
+    cin>>startingDateOfTheBalance;
+    if (OperationsOnDates::checkTheCorrectnessOfTheDate(startingDateOfTheBalance))
+    {
+        cout<<"Podaj date, do ktorej chcesz wyswietlic bilans"<<endl;
+        cin>>endDateOfTheBalance;
+         if (OperationsOnDates::checkTheCorrectnessOfTheDate(endDateOfTheBalance))
+    {
+        startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
+        endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
+        for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
+           if (itr->getDate() >=startingDate && itr->getDate()<=endDate){
+                displayIncomeData(*itr);
+    }
+    }
+    }
+    }
 }

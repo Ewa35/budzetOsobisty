@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "Income.h"
 #include "OperationsOnDates.h"
 #include "AuxiliartMethods.h"
@@ -16,10 +17,28 @@ vector<Income> incomes;
 Income addIncomeData();
 
 int  getIncomeId();
+void  wypisz();
+string downloadFirstDayOfTheMonth(string currentDate);
+string downloadLastDayOfTheMonth(string currentDate);
+void displayIncomeData (Income income);
+string SetTheDateBackOneMonth(string date);
+string SetTheDateBackOneYear(string date);
+
 public:
 Income addIncome();
+void loadIncomesFromFile();
+void balanceForTheCurrentMonth();
+void  balanceForThePreviousMonth();
+void incomeBalanceForTheSelectedPeriod();
 
 
+struct before
+{
+    inline bool operator() ( Income& struct1,  Income& struct2)
+    {
+        return (struct1.getDate() < struct2.getDate());
+    }
+};
 
 
 

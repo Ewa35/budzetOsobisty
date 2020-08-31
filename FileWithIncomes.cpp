@@ -39,3 +39,55 @@ string FileWithIncomes::replaceIncomeDataForDataLinesSeparatedByVerticalLines(In
     lineWithData+=AuxiliartMethods::conversionDoubleForString(income.getValue())+"|";
     return lineWithData;
 }
+vector<Income> FileWithIncomes::loadIncomesFromFile()
+{
+    CMarkup xml;
+    vector<Income> incomes;
+    Income income;
+    string u= "user"+AuxiliartMethods::conversionIntForString(1);
+
+    bool fileExists = xml.Load( "Incomes.xml" );
+    xml.FindElem();
+    xml.IntoElem();
+    xml.FindElem(u);
+    xml.IntoElem();
+    while (xml.FindElem()) {
+        MCD_STR dataFromTheFile = xml.GetData();
+        income=downloadUserData(dataFromTheFile);
+        incomes.push_back(income);
+    }
+    xml.OutOfElem();
+    return  incomes;
+}
+Income FileWithIncomes:: downloadUserData(string dataFromTheFile) {
+    Income income;
+    string singleData = "";
+    int numberSingleData = 1;
+
+    for (int markPosition = 0; markPosition < dataFromTheFile.length(); markPosition++) {
+        if (dataFromTheFile[markPosition] != '|') {
+            singleData += dataFromTheFile[markPosition];
+        } else {
+            switch(numberSingleData) {
+            case 1:
+                income.setUserId( atoi(singleData.c_str()));
+                break;
+            case 2:
+                income.setId( atoi(singleData.c_str()));
+                break;
+            case 3:
+                income.setDate(atoi(singleData.c_str()));
+                break;
+            case 4:
+                income.setIncomeCategory(singleData);
+                break;
+            case 5:
+                income.setValue(AuxiliartMethods::conversionStringForDouble(singleData));
+                break;
+            }
+            singleData = "";
+            numberSingleData++;
+        }
+    }
+    return income;
+}

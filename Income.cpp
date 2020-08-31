@@ -7,7 +7,7 @@ void Income::setId (int newId) {
     id=newId;
 }
 void Income::setIncomeCategory (string newIncomeCategory) {
-    incomeCategory=newIncomeCategory;
+    category=newIncomeCategory;
 }
 void Income::setDate (int newDate) {
     date=newDate;
@@ -23,7 +23,7 @@ int Income::getId() {
     return id;
 }
 string Income::getIncomeCategory() {
-    return incomeCategory;
+    return category;
 }
 int Income::getDate() {
     return date;

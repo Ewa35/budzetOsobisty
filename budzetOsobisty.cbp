@@ -34,12 +34,18 @@
 		</Compiler>
 		<Unit filename="AuxiliartMethods.cpp" />
 		<Unit filename="AuxiliartMethods.h" />
+		<Unit filename="FileWithIncomes.cpp" />
+		<Unit filename="FileWithIncomes.h" />
 		<Unit filename="FileWithUsers.cpp" />
 		<Unit filename="FileWithUsers.h" />
 		<Unit filename="Income.cpp" />
 		<Unit filename="Income.h" />
+		<Unit filename="IncomeManager.cpp" />
+		<Unit filename="IncomeManager.h" />
 		<Unit filename="Markup.cpp" />
 		<Unit filename="Markup.h" />
+		<Unit filename="OperationsOnDates.cpp" />
+		<Unit filename="OperationsOnDates.h" />
 		<Unit filename="User.cpp" />
 		<Unit filename="User.h" />
 		<Unit filename="UserManager.cpp" />

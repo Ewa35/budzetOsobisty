@@ -11,6 +11,7 @@ using namespace std;
 class FileWithIncomes {
 
     string replaceIncomeDataForDataLinesSeparatedByVerticalLines(Income income );
+    Income  downloadUserData(string dataFromTheFile);
 
 public:
    bool saveIncomeToFile(Income income);
