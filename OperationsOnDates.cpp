@@ -85,3 +85,39 @@ int OperationsOnDates::numberDaysOfTheMonth (int monthNumber, int year) {
     }
     return numberDaysInAMonth;
 }
+string OperationsOnDates::changeTheDateFormat(int date)
+{
+    string buffor;
+    string correctDateFormat;
+    buffor=AuxiliartMethods::conversionIntForString(date);
+
+    for(int i=0; i<buffor.length(); i++)
+    {
+        correctDateFormat+=buffor[i];
+        if (i==3 || i==5 )
+        {
+            correctDateFormat+="-";
+        }
+    }
+    return correctDateFormat;
+}
+
+string OperationsOnDates::getNumberDaysOfTheMonth (string date)
+{
+    string  monthBuffer, yearBuffer;
+    int month, year;
+    string numberDays;
+    for (int i=0; i<10; i++) {
+        if (i==0 || i<=3) {
+            yearBuffer+=date[i];
+        }
+        if (i==5 || i==6) {
+            monthBuffer+=date[i];
+        }
+
+    }
+    month = atoi(monthBuffer.c_str());
+    year = atoi(yearBuffer.c_str());
+    numberDays = AuxiliartMethods::conversionIntForString(numberDaysOfTheMonth ( month,  year));
+    return numberDays;
+}

@@ -2,6 +2,8 @@
 #include "User.h"
 #include "UserManager.h"
 #include "IncomeManager.h"
+#include "FileWithIncomes.h"
+#include "ExpenseManager.h"
 using namespace std;
 
 
@@ -9,7 +11,13 @@ int main()
 {
 
    IncomeManager in;
-    in.addIncome();
+   ExpenseManager ex;
+   FileWithIncomes fileWithIncomes;
+    ex.loadExpensesFromFile();
+  // ex.addExpense();
+   ex.wypisz();
+  // in.loadIncomesFromFile();
+    //in.incomeBalanceForTheSelectedPeriod();
 
     return 0;
 }

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <time.h>
 #include <algorithm>
+#include "AuxiliartMethods.h"
 using namespace std;
 
 class OperationsOnDates
@@ -13,5 +14,7 @@ class OperationsOnDates
     public:
 static string  todaysDate();
 static bool checkTheCorrectnessOfTheDate(string date);
+static  string changeTheDateFormat(int date);
+static string getNumberDaysOfTheMonth (string date);
 };
 #endif
