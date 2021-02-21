@@ -18,9 +18,13 @@ class ExpenseManager
 
     Expense addExpenseData();
     int getExpenseId();
+    void displayExpenseData (Expense expense);
 public:
     Expense addExpense();
     void wypisz();
     void loadExpensesFromFile();
+    void  balanceForTheCurrentMonth();
+    void balanceForThePreviousMonth();
+    void expenseBalanceForTheSelectedPeriod();
 };
 #endif

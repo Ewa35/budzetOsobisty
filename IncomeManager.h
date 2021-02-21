@@ -18,8 +18,6 @@ Income addIncomeData();
 
 int  getIncomeId();
 void  wypisz();
-string downloadFirstDayOfTheMonth(string currentDate);
-string downloadLastDayOfTheMonth(string currentDate);
 void displayIncomeData (Income income);
 string SetTheDateBackOneMonth(string date);
 string SetTheDateBackOneYear(string date);

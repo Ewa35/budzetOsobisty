@@ -87,3 +87,62 @@ void ExpenseManager ::loadExpensesFromFile()
 {
     expenses=fileWithExpenses.loadExpensesFromFile();
 }
+void ExpenseManager  :: balanceForTheCurrentMonth()
+{
+    string currentDate="", firstDayOfTheMonth="", lastDayOfTheMonth="";
+    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    currentDate=OperationsOnDates::todaysDate();
+    firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(currentDate);
+    lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(currentDate);
+    integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
+    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
+
+   for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
+           if (itr->getDate() >=integerFirstDayOfTheMonth && itr->getDate()<=integerLastDayOfTheMonth){
+                displayExpenseData(*itr);
+    }
+    }
+}
+void ExpenseManager ::displayExpenseData (Expense expense)
+{
+    cout<<endl<<expense.getId()<<"  kategoria dochodu:  "<< expense.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(expense.getDate())<<"  watrosc wydatku:  "<< expense.getValue();
+}
+void ExpenseManager  :: balanceForThePreviousMonth()
+{
+    string currentDate="", dateOfThePreviousMonth="", firstDayOfTheMonth="", lastDayOfTheMonth="";
+    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    currentDate=OperationsOnDates::todaysDate();
+    dateOfThePreviousMonth=OperationsOnDates::SetTheDateBackOneMonth(currentDate);
+    firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(dateOfThePreviousMonth);
+    lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(dateOfThePreviousMonth);
+    integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
+    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
+
+   for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
+           if (itr->getDate() >=integerFirstDayOfTheMonth && itr->getDate()<=integerLastDayOfTheMonth){
+                displayExpenseData(*itr);
+    }
+    }
+}
+void ExpenseManager  ::expenseBalanceForTheSelectedPeriod()
+{
+    string startingDateOfTheBalance="", endDateOfTheBalance="";
+    int startingDate=0, endDate=0;
+    cout<<"Podaj date, od ktorej chcesz wyswietlic bilans"<<endl;
+    cin>>startingDateOfTheBalance;
+    if (OperationsOnDates::checkTheCorrectnessOfTheDate(startingDateOfTheBalance))
+    {
+        cout<<"Podaj date, do ktorej chcesz wyswietlic bilans"<<endl;
+        cin>>endDateOfTheBalance;
+         if (OperationsOnDates::checkTheCorrectnessOfTheDate(endDateOfTheBalance))
+    {
+        startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
+        endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
+        for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
+           if (itr->getDate() >=startingDate && itr->getDate()<=endDate){
+                displayExpenseData(*itr);
+    }
+    }
+    }
+    }
+}

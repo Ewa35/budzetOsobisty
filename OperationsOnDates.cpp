@@ -121,3 +121,76 @@ string OperationsOnDates::getNumberDaysOfTheMonth (string date)
     numberDays = AuxiliartMethods::conversionIntForString(numberDaysOfTheMonth ( month,  year));
     return numberDays;
 }
+string OperationsOnDates::downloadFirstDayOfTheMonth(string currentDate)
+{
+    string firstDayOfTheMonth;
+    for (int i=0; i<=currentDate.length(); i++)
+    {
+        if (i==8)
+        {
+            firstDayOfTheMonth+="0";
+        }
+        else if (i==9)
+        {
+            firstDayOfTheMonth+="1";
+        }
+        else
+            firstDayOfTheMonth+=currentDate[i];
+    }
+    return firstDayOfTheMonth;
+}
+string OperationsOnDates::downloadLastDayOfTheMonth(string currentDate)
+{
+    string lastDayOfTheMonth;
+    for (int i=0; i<=currentDate.length()-3; i++)
+    {
+
+            lastDayOfTheMonth+=currentDate[i];
+    }
+    lastDayOfTheMonth+=OperationsOnDates::getNumberDaysOfTheMonth(currentDate);
+    return lastDayOfTheMonth;
+}
+string OperationsOnDates::SetTheDateBackOneMonth(string date)
+ {
+     string month="";
+     int monthNumber=0;
+    month[0]=date[5];
+    month[1]=date[6];
+    monthNumber=atoi(month.c_str());
+    if (monthNumber==1)
+    {
+        monthNumber=12;
+        date=SetTheDateBackOneYear(date);
+    }
+    else{
+        monthNumber-=1;
+    }
+    month=AuxiliartMethods::conversionIntForString(monthNumber);
+    if (monthNumber<10)
+    {
+        date[5]='0';
+        date[6]=month[0];
+    }
+    else{
+        date[5]=month[0];
+        date[6]=month[1];
+    }
+    return date;
+ }
+string OperationsOnDates::SetTheDateBackOneYear(string date)
+{
+    string year="";
+    int numberYear=0;
+for (int i=0; i<=3; i++)
+{
+    year+=date[i];
+}
+numberYear=atoi(year.c_str());
+numberYear--;
+year=AuxiliartMethods::conversionIntForString(numberYear);
+for (int i=0; i<=3; i++)
+{
+    date[i]=year[i];
+}
+return date;
+}

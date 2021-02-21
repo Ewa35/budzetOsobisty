@@ -15,7 +15,7 @@ int main()
    FileWithIncomes fileWithIncomes;
     ex.loadExpensesFromFile();
   // ex.addExpense();
-   ex.wypisz();
+   ex.balanceForTheCurrentMonth();
   // in.loadIncomesFromFile();
     //in.incomeBalanceForTheSelectedPeriod();
 
