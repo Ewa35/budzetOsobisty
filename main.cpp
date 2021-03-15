@@ -14,7 +14,7 @@ int main()
    ExpenseManager ex;
    FileWithIncomes fileWithIncomes;
     ex.loadExpensesFromFile();
-  // ex.addExpense();
+   //ex.addExpense();
    ex.balanceForTheCurrentMonth();
   // in.loadIncomesFromFile();
     //in.incomeBalanceForTheSelectedPeriod();
