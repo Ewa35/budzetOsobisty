@@ -2,7 +2,7 @@
 1597618922 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
 	"FileWithUsers.h"
 
-1598878499 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
+1615147463 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
 	<iostream>
 	"User.h"
 	"UserManager.h"
@@ -63,7 +63,7 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.cpp
 	"Income.h"
 
-1598874170 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.h
+1614024947 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.h
 	<iostream>
 
 1598886750 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\operationsondates.cpp
@@ -100,7 +100,7 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.cpp
 	"Expense.h"
 
-1598874170 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.h
+1615147363 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.h
 	<iostream>
 	"Income.h"
 

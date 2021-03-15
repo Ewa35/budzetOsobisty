@@ -6,7 +6,7 @@
 using namespace std;
 
 class Income{
-
+ public:
  int userId;
  int id;
  string category;
