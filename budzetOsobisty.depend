@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1597618922 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
+1597622522 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
 	"FileWithUsers.h"
 
-1615147463 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
+1615843953 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
 	<iostream>
 	"User.h"
 	"UserManager.h"
@@ -10,16 +10,16 @@
 	"FileWithIncomes.h"
 	"ExpenseManager.h"
 
-1596415163 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
+1596418763 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
 	"UserManager.h"
 
-1594330693 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
+1594334293 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
 	"User.h"
 
-1594330693 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.h
+1594334293 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.h
 	<iostream>
 
-1596415163 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
+1596418763 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
 	<iostream>
 	<vector>
 	<stdlib.h>
@@ -27,7 +27,7 @@
 	"FileWithUsers.h"
 	"AuxiliartMethods.h"
 
-1597618922 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
+1597622522 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
 	<iostream>
 	<sstream>
 	<fstream>
@@ -36,13 +36,13 @@
 	"Markup.h"
 	"AuxiliartMethods.h"
 
-1594599761 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\markup.h
+1594603361 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\markup.h
 	<stdlib.h>
 	<string.h>
 	<string>
 	<afx.h>
 
-1594599761 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\markup.cpp
+1594603361 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\markup.cpp
 	<stdio.h>
 	"Markup.h"
 	<errno.h>
@@ -50,32 +50,32 @@
 	<windows.h>
 	<mbstring.h>
 
-1597618922 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.h
+1597622522 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.h
 	<iostream>
 	<sstream>
 	<iomanip>
 	<cstdlib>
 	<string>
 
-1597618922 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.cpp
+1597622522 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\auxiliartmethods.cpp
 	"AuxiliartMethods.h"
 
-1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.cpp
+1598877770 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.cpp
 	"Income.h"
 
-1614024947 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.h
+1615843953 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.h
 	<iostream>
 
-1598886750 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\operationsondates.cpp
+1598890350 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\operationsondates.cpp
 	"OperationsOnDates.h"
 
-1598886750 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\operationsondates.h
+1598890350 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\operationsondates.h
 	<iostream>
 	<time.h>
 	<algorithm>
 	"AuxiliartMethods.h"
 
-1598878203 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.h
+1598881803 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -84,30 +84,30 @@
 	"AuxiliartMethods.h"
 	"FileWithIncomes.h"
 
-1598886750 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.cpp
+1618775822 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.cpp
 	"IncomeManager.h"
 
-1598874170 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithincomes.h
+1598877770 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithincomes.h
 	<iostream>
 	<vector>
 	"Income.h"
 	"Markup.h"
 	"AuxiliartMethods.h"
 
-1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithincomes.cpp
+1598877770 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithincomes.cpp
 	"FileWithIncomes.h"
 
-1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.cpp
+1598877770 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.cpp
 	"Expense.h"
 
-1615147363 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.h
+1615843953 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.h
 	<iostream>
 	"Income.h"
 
-1602527390 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
+1618775871 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
 	"ExpenseManager.h"
 
-1602527390 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.h
+1602530990 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.h
 	<iostream>
 	<vector>
 	"Expense.h"
@@ -115,13 +115,29 @@
 	"AuxiliartMethods.h"
 	"FileWithExpenses.h"
 
-1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithexpenses.cpp
+1598877770 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithexpenses.cpp
 	"FileWithExpenses.h"
 
-1598874170 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithexpenses.h
+1598877770 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithexpenses.h
 	<iostream>
 	<vector>
 	"Expense.h"
 	"Markup.h"
 	"AuxiliartMethods.h"
+
+1618775795 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.cpp
+	"BudgetManager.h"
+
+1618773365 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.h
+	<iostream>
+	"IncomeManager.h"
+	"ExpenseManager.h"
+
+1618778512 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\personalbudget.cpp
+	"PersonalBudget.h"
+
+1618777764 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\personalbudget.h
+	<iostream>
+	"BudgetManager.h"
+	"UserManager.h"
 

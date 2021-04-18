@@ -8,16 +8,16 @@ using namespace std;
 
 class BudgetManager {
 
-IncomeManager incomeManager;
-ExpenseManager expenseManager;
-int LOGGED_USER_ID;
+    IncomeManager incomeManager;
+    ExpenseManager expenseManager;
+    int LOGGED_USER_ID;
 
 public:
     void addIncome();
     void addExpense();
     void balanceCurrentMonths();
-void  balanceOfThePreviousMonth();
-void  balanceSelectedPeriodOfTime();
+    void  balanceOfThePreviousMonth();
+    void  balanceSelectedPeriodOfTime();
 
 
 };

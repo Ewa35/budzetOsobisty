@@ -102,6 +102,8 @@ void ExpenseManager  :: balanceForTheCurrentMonth()
                 displayExpenseData(*itr);
     }
     }
+     if (expenses.empty())
+         cout<<" Brak wydatkow w bierzacym miesiacu"<<endl;
 }
 void ExpenseManager ::displayExpenseData (Expense expense)
 {
@@ -136,6 +138,8 @@ void ExpenseManager  ::expenseBalanceForTheSelectedPeriod()
         cin>>endDateOfTheBalance;
          if (OperationsOnDates::checkTheCorrectnessOfTheDate(endDateOfTheBalance))
     {
+        system ("cls");
+        cout<<"WYDATKI DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< "DO "<< endDateOfTheBalance<<endl;
         startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
         endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
         for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {

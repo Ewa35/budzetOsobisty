@@ -104,6 +104,9 @@ void IncomeManager  :: balanceForTheCurrentMonth()
                 displayIncomeData(*itr);
     }
     }
+
+    if (incomes.empty())
+         cout<<" Brak dochodów w bierzacym miesiacu"<<endl;
 }
 
 
@@ -141,6 +144,8 @@ void IncomeManager  ::incomeBalanceForTheSelectedPeriod()
         cin>>endDateOfTheBalance;
          if (OperationsOnDates::checkTheCorrectnessOfTheDate(endDateOfTheBalance))
     {
+        system ("cls");
+        cout<<"DOCHODY DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< "DO "<< endDateOfTheBalance<<endl;
         startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
         endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
         for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
