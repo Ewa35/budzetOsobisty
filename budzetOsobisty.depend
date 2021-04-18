@@ -104,7 +104,7 @@
 	<iostream>
 	"Income.h"
 
-1618775346 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
+1618775871 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
 	"ExpenseManager.h"
 
 1602530990 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.h
@@ -132,4 +132,12 @@
 	<iostream>
 	"IncomeManager.h"
 	"ExpenseManager.h"
+
+1618778512 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\personalbudget.cpp
+	"PersonalBudget.h"
+
+1618777764 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\personalbudget.h
+	<iostream>
+	"BudgetManager.h"
+	"UserManager.h"
 
