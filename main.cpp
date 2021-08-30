@@ -1,74 +1,73 @@
 #include <iostream>
-#include "User.h"
-#include "UserManager.h"
-#include "IncomeManager.h"
-#include "FileWithIncomes.h"
-#include "ExpenseManager.h"
+#include <cstdlib>
+#include "PersonalBudget.h"
 using namespace std;
-
 
 int main()
 {
+    PersonalBudget personalBudget;
 
-   IncomeManager in;
-   ExpenseManager ex;
-   FileWithIncomes fileWithIncomes;
-    ex.loadExpensesFromFile();
-   //ex.addExpense();
-   ex.balanceForTheCurrentMonth();
-  // in.loadIncomesFromFile();
-    //in.incomeBalanceForTheSelectedPeriod();
+    char choiceFromTheMenu;
+        while (true)
+    {
+        if (personalBudget.checkIfTheUserIsLoggedIn()==false)
+        {
+            choiceFromTheMenu = personalBudget.loginMenuOptions();
+
+            switch (choiceFromTheMenu)
+            {
+            case '1':
+                personalBudget.userRegistration();
+                break;
+            case '2':
+                personalBudget.loginUser();
+                break;
+            case '9':
+                exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+
+      else
+        {
+            if (personalBudget.checkIfTheUserIsLoggedIn())
+            {
+                choiceFromTheMenu = personalBudget.userMenuOptions();
+
+                switch (choiceFromTheMenu)
+                {
+                case '1':
+                    personalBudget.addIncome();
+                    break;
+                case '2':
+                    personalBudget.addExpense();
+                    break;
+                case '3':
+                    personalBudget.balanceCurrentMonths();
+                    break;
+                case '4':
+                    personalBudget.balanceOfThePreviousMonth();
+                    break;
+                case '5':
+                    personalBudget.balanceSelectedPeriodOfTime();
+                    break;
+                case '6':
+                    personalBudget.changePasswordOfLoggedInUsser();
+                    break;
+                case '9':
+                    personalBudget.logout();
+                    break;
+
+
+            }
+            }
+        }
+
+    }
 
     return 0;
-}
-
-
-
-
-
-/*int main()
-{
-
-    UserManager userManager;
-    //userManager.userRegistration();
-    userManager.loadUsersFromFile();
-    userManager.loginUser();
-
-   // userManager.wypisz();
-   userManager.changePasswordOfLoggedInUser();
-
-
-    return 0;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*int main()
-{
-    User user;
-    user.setId(1);
-    user.setName("Ewa");
-    user.setLastName("Kwiecien");
-    user.setLogin("123ewa");
-    user.setPassword("1220");
-
-    cout << user.getId() << endl;
-    cout << user.getName() << endl;
-    cout << user.getLastName() << endl;
-    cout << user.getLogin() << endl;
-    cout << user.getPassword() << endl;
-    return 0;
-}*/
+    }

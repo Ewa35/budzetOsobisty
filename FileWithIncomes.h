@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "Income.h"
 #include "Markup.h"
 #include "AuxiliartMethods.h"
@@ -15,9 +16,15 @@ class FileWithIncomes {
 
 public:
    bool saveIncomeToFile(Income income);
-   vector<Income> loadIncomesFromFile();
+   vector<Income> loadIncomesFromFile(int userId);
 
-
+struct before
+{
+    inline bool operator() ( Income& struct1,  Income& struct2)
+    {
+        return (struct1.getDate() < struct2.getDate());
+    }
+};
 
 };
 #endif

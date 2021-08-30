@@ -15,7 +15,7 @@ string replaceIncomeDataForDataLinesSeparatedByVerticalLines(Expense expense );
 
 public:
    bool saveExpenseToFile(Expense expense);
-   vector<Expense> loadExpensesFromFile();
+   vector<Expense> loadExpensesFromFile(int userId);
 
 
 

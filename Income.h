@@ -10,10 +10,20 @@ class Income{
  int userId;
  int id;
  string category;
- int date;
- double value;
+  int date;
+  double value;
 
 public:
+     Income (int userId=0, int id=0, string category="", int date=0, double value=0)
+     {
+         this->userId=userId;
+         this->id=id;
+         this->category=category;
+         this->date=date;
+         this->value=value;
+
+     };
+
 
     void setUserId (int newUserId);
     void setId (int newId);

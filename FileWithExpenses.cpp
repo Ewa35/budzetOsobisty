@@ -39,12 +39,12 @@ string FileWithExpenses::replaceIncomeDataForDataLinesSeparatedByVerticalLines(E
     lineWithData+=AuxiliartMethods::conversionDoubleForString(expense.getValue())+"|";
     return lineWithData;
 }
-vector<Expense> FileWithExpenses::loadExpensesFromFile()
+vector<Expense> FileWithExpenses::loadExpensesFromFile(int userId)
 {
     CMarkup xml;
     vector<Expense> expenses;
     Expense expense;
-    string u= "user"+AuxiliartMethods::conversionIntForString(1);
+    string u= "user"+AuxiliartMethods::conversionIntForString(userId);
 
     bool fileExists = xml.Load( "Expenses.xml" );
     xml.FindElem();
@@ -53,7 +53,7 @@ vector<Expense> FileWithExpenses::loadExpensesFromFile()
     xml.IntoElem();
     while (xml.FindElem()) {
         MCD_STR dataFromTheFile = xml.GetData();
-        //cout<<dataFromTheFile<<endl;
+        cout<<dataFromTheFile<<endl;
         expense=downloadUserData(dataFromTheFile);
         expenses.push_back(expense);
     }
