@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "Expense.h"
 #include "OperationsOnDates.h"
 #include "AuxiliartMethods.h"
 #include "FileWithExpenses.h"
+
 
 using namespace std;
 
@@ -16,15 +18,23 @@ class ExpenseManager
     vector <Expense> expenses;
     FileWithExpenses fileWithExpenses ;
 
-    Expense addExpenseData();
+    Expense addExpenseData(int userId);
     int getExpenseId();
     void displayExpenseData (Expense expense);
 public:
-    Expense addExpense();
+    Expense addExpense(int userId);
     void wypisz();
-    void loadExpensesFromFile();
-    void  balanceForTheCurrentMonth();
-    void balanceForThePreviousMonth();
-    void expenseBalanceForTheSelectedPeriod();
+    void loadExpensesFromFile(int userId);
+    void  balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+    void balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+    void expenseBalanceForTheSelectedPeriod(int startingDate, int endDate);
+    struct before
+{
+    inline bool operator() ( Expense& struct1,  Expense& struct2)
+    {
+        return (struct1.getDate() < struct2.getDate());
+    }
+};
+
 };
 #endif

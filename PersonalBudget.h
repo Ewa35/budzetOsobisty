@@ -10,8 +10,18 @@ class PersonalBudget{
 
 
 UserManager userManager;
-BudgetManager budgetManager;
-
+BudgetManager *budgetManager;
+public:
+    PersonalBudget()
+    {
+        budgetManager=NULL;
+    };
+    ~PersonalBudget()
+    {
+        delete budgetManager;
+        budgetManager=NULL;
+    };
+void userRegistration();
 void loginUser();
 void changePasswordOfLoggedInUsser();
 void addIncome();
@@ -20,6 +30,9 @@ void balanceCurrentMonths();
 void balanceOfThePreviousMonth();
 void balanceSelectedPeriodOfTime();
 void logout();
+bool checkIfTheUserIsLoggedIn();
+char loginMenuOptions();
+char userMenuOptions ();
 
 };
 

@@ -49,7 +49,7 @@ void UserManager :: wypisz()
 void UserManager ::loadUsersFromFile()
 {
     users=fileWithUsers.loadUsersFromFile();
-    wypisz();
+   // wypisz();
 }
 void UserManager ::loginUser()
 {
@@ -94,13 +94,6 @@ void UserManager ::changePasswordOfLoggedInUser() {
         cout << "Podaj nowe haslo: ";
         newPassword = AuxiliartMethods::loadLine();
 
-        /*for (int i=0; i<users.size(); i++) {
-            if (users[i].getId() == loggedUserId) {
-                users[i].setPassword(newPassword);
-                cout << "Haslo zostalo zmienione." << endl << endl;
-                system("pause");
-            }
-        }*/
         for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
                  if (itr->getId() == loggedUserId)
                  {
@@ -115,3 +108,16 @@ void UserManager ::changePasswordOfLoggedInUser() {
 
         fileWithUsers.saveTheNewPasswordInAFile(lineWithData,loggedUserId);
     }
+bool UserManager :: checkIfTheUserIsLoggedIn(){
+if (loggedUserId>0)
+            return true;
+        else
+            return false;
+
+}
+int UserManager ::currentlyLoggedUserId(){
+return loggedUserId;
+}
+void UserManager ::logout (){
+    loggedUserId=0;
+}

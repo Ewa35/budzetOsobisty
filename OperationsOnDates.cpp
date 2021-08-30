@@ -10,10 +10,10 @@ string OperationsOnDates::todaysDate() {
     return todaysDate;
 }
 bool OperationsOnDates::checkTheCorrectnessOfTheDate(string date) {
-    int day, month, year;
-    int currentDay, currentMonth, currentYear;
-    int daysInAMonth;
-    string currentDate;
+    int day=0, month=0, year=0;
+    int currentDay=0, currentMonth=0, currentYear=0;
+    int daysInAMonth=0;
+    string currentDate="";
     currentDate=todaysDate();
     conversionCharONInt( date,   day,   month,  year);
     conversionCharONInt(  currentDate,  currentDay,  currentMonth,  currentYear);

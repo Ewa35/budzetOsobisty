@@ -8,13 +8,16 @@
 #include "OperationsOnDates.h"
 #include "AuxiliartMethods.h"
 #include "FileWithIncomes.h"
+
+
 using namespace std;
 
 class IncomeManager{
 
 FileWithIncomes fileWithIncomes;
+
 vector<Income> incomes;
-Income addIncomeData();
+Income addIncomeData(int userId);
 
 int  getIncomeId();
 void  wypisz();
@@ -23,11 +26,12 @@ string SetTheDateBackOneMonth(string date);
 string SetTheDateBackOneYear(string date);
 
 public:
-Income addIncome();
-void loadIncomesFromFile();
-void balanceForTheCurrentMonth();
-void  balanceForThePreviousMonth();
-void incomeBalanceForTheSelectedPeriod();
+
+Income addIncome(int userId);
+void loadIncomesFromFile(int userId);
+void balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+void  balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+void incomeBalanceForTheSelectedPeriod(int startingDate, int endDate);
 
 
 struct before

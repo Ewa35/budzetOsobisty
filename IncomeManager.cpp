@@ -1,10 +1,10 @@
 #include "IncomeManager.h"
 
-Income IncomeManager::addIncome()
+Income IncomeManager::addIncome(int userId)
 {
      system("cls");
     cout << " >>> DODAJ DOCHOD <<<" << endl << endl;
-    Income income = addIncomeData();
+    Income income = addIncomeData(userId);
 
     incomes.push_back(income);
     if(fileWithIncomes.saveIncomeToFile(income))
@@ -16,14 +16,15 @@ Income IncomeManager::addIncome()
     system("pause");
 }
 
-Income IncomeManager::addIncomeData()
+Income IncomeManager::addIncomeData(int userId)
 {
     Income income;
     char choice;
     string date="", incomeCategory="", value="";
     int dateOfIncome=0;
     double incomeValue=0;
-
+    int incomeId=0;
+    incomeId=getIncomeId();
     cout<<"Czy chcesz dodac dochod z data dnia dzisiejszego?"<<endl;
     cout<<" 1. TAK"<<endl;
     cout<<" 2. NIE"<<endl;
@@ -52,8 +53,8 @@ Income IncomeManager::addIncomeData()
         cin>>value;
         incomeValue=AuxiliartMethods::conversionStringForDouble(value);
 
-        income.setUserId(1);
-        income.setId(getIncomeId());
+        income.setUserId(userId);
+        income.setId(incomeId);
         income.setDate(dateOfIncome);
         income.setIncomeCategory (incomeCategory);
         income.setValue(incomeValue);
@@ -66,16 +67,19 @@ Income IncomeManager::addIncomeData()
     return income;
 }
 int IncomeManager :: getIncomeId() {
-    if (incomes.empty() == true)
+    if (incomes.empty())
         return 1;
     else
-        return incomes.back().getId() + 1;
+        wypisz();
+        return incomes.back().getId()+1;
 }
-void IncomeManager :: loadIncomesFromFile()
+void IncomeManager :: loadIncomesFromFile(int userId)
 {
-    incomes=fileWithIncomes.loadIncomesFromFile();
-    sort( incomes.begin(), incomes.end(), before() );
-    // wypisz();
+  incomes.clear();
+   incomes=fileWithIncomes.loadIncomesFromFile(userId);
+   sort( incomes.begin(), incomes.end(), before() );
+     wypisz();
+
 }
 void IncomeManager  :: wypisz()
 {
@@ -89,70 +93,93 @@ void IncomeManager  :: wypisz()
         cout<<incomes[i].getValue()<<endl;
     }
 }
-void IncomeManager  :: balanceForTheCurrentMonth()
+void IncomeManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth)
 {
-    string currentDate="", firstDayOfTheMonth="", lastDayOfTheMonth="";
-    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+   /*string currentDate="", firstDayOfTheMonth="", lastDayOfTheMonth="";
+    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0, numberOfHits=0;
+    double totalIncome=0;
     currentDate=OperationsOnDates::todaysDate();
     firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(currentDate);
     lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(currentDate);
     integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
-    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
+    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);*/
+
+    double totalIncome=0;
+ int numberOfHits=0;
 
    for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
            if (itr->getDate() >=integerFirstDayOfTheMonth && itr->getDate()<=integerLastDayOfTheMonth){
                 displayIncomeData(*itr);
+                totalIncome+=itr->getValue();
+                numberOfHits++;
     }
     }
 
-    if (incomes.empty())
+
+    if (numberOfHits==0)
          cout<<" Brak dochodów w bierzacym miesiacu"<<endl;
+    else
+    {
+        cout<<endl<<"Calkowita watrosc dochodow w bierzacym miesiacu:   "<< totalIncome<<endl;
+    }
+
 }
 
 
 void IncomeManager  ::displayIncomeData (Income income)
 {
-    cout<<endl<<income.getId()<<"  kategoria dochodu:  "<< income.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(income.getDate())<<"  watrosc dochodu:  "<< income.getValue();
+    cout<<endl<<"  kategoria dochodu:  "<< income.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(income.getDate())<<"  watrosc dochodu:  "<< income.getValue();
 }
-void IncomeManager  :: balanceForThePreviousMonth()
+void IncomeManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth)
 {
-    string currentDate="", dateOfThePreviousMonth="", firstDayOfTheMonth="", lastDayOfTheMonth="";
-    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    /*string currentDate="", dateOfThePreviousMonth="", firstDayOfTheMonth="", lastDayOfTheMonth="";
+    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0,numberOfHits=0;
+    double totalIncome=0;
+
     currentDate=OperationsOnDates::todaysDate();
     dateOfThePreviousMonth=OperationsOnDates::SetTheDateBackOneMonth(currentDate);
     firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(dateOfThePreviousMonth);
     lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(dateOfThePreviousMonth);
     integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
-    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
+    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);*/
+     double totalIncome=0;
+ int numberOfHits=0;
 
    for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
            if (itr->getDate() >=integerFirstDayOfTheMonth && itr->getDate()<=integerLastDayOfTheMonth){
                 displayIncomeData(*itr);
+                totalIncome+=itr->getValue();
+                numberOfHits++;
     }
     }
+    if (numberOfHits==0)
+         cout<<" Brak dochodów w bierzacym miesiacu"<<endl;
+    else
+    {
+        cout<<endl<<"Calkowita watrosc dochodow w bierzacym miesiacu:   "<< totalIncome<<endl;
+    }
+
 }
 
-void IncomeManager  ::incomeBalanceForTheSelectedPeriod()
+void IncomeManager  ::incomeBalanceForTheSelectedPeriod(int startingDate, int endDate)
 {
-    string startingDateOfTheBalance="", endDateOfTheBalance="";
-    int startingDate=0, endDate=0;
-    cout<<"Podaj date, od ktorej chcesz wyswietlic bilans"<<endl;
-    cin>>startingDateOfTheBalance;
-    if (OperationsOnDates::checkTheCorrectnessOfTheDate(startingDateOfTheBalance))
-    {
-        cout<<"Podaj date, do ktorej chcesz wyswietlic bilans"<<endl;
-        cin>>endDateOfTheBalance;
-         if (OperationsOnDates::checkTheCorrectnessOfTheDate(endDateOfTheBalance))
-    {
-        system ("cls");
-        cout<<"DOCHODY DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< "DO "<< endDateOfTheBalance<<endl;
-        startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
-        endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
+
+    int  numberOfHits=0;
+    double totalIncome=0;
+
         for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
            if (itr->getDate() >=startingDate && itr->getDate()<=endDate){
                 displayIncomeData(*itr);
+                numberOfHits++;
+                totalIncome+=itr->getValue();
     }
+        }
+  if (numberOfHits==0)
+         cout<<" Brak wydatkow w bierzacym miesiacu"<<endl;
+    else
+    {
+    cout<<endl<<"Calkowita watrosc wydatkow: "<< totalIncome<<endl;
     }
-    }
-    }
+
+
 }
