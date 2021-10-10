@@ -1,9 +1,6 @@
 #include"BudgetManager.h"
 
-void BudgetManager::load()
-{
-    incomeManager.loadIncomesFromFile( LOGGED_USER_ID);
-}
+
 void BudgetManager::addIncome(){
 
 incomeManager.addIncome(LOGGED_USER_ID);

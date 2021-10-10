@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>7</zoom_level>
+  <zoom_level>4</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
-      <y>245</y>
-      <w>196</w>
-      <h>182</h>
+      <x>184</x>
+      <y>128</y>
+      <w>112</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>PersonalBudget
 --
 - userManager:UserManager
+- *budgetManager:budgetManager
 --
 + userRegistration(): void
 + loginUser(): void
@@ -22,16 +23,19 @@
 + balanceOfThePreviousMonth():void 
 + balanceSelectedPeriodOfTime():void
 + logout(): void
++ bool checkIfTheUserIsLoggedIn():bool
++ loginMenuOptions(): char
++ userMenuOptions(): char
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>231</x>
-      <y>119</y>
-      <w>105</w>
-      <h>98</h>
+      <x>284</x>
+      <y>56</y>
+      <w>60</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -47,27 +51,35 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>371</x>
-      <y>112</y>
-      <w>210</w>
-      <h>98</h>
+      <x>364</x>
+      <y>52</y>
+      <w>120</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>UserManager
 --
 - users: vecor&lt;User&gt;
+- fileWithUsers: FileWithUsers
+- loggedUserId: integer
 --
 + userRegistration(): void
 + loginUser(): void
-+ changePasswordOfLoggedInUser(): void</panel_attributes>
++ changePasswordOfLoggedInUser(): void
++ giveDataNewUser(): User
++downloadNewUserId(): integer
++ changePasswordOfLoggedInUser(): void
++ checkIfTheUserIsLoggedIn():bool
++ currentlyLoggedUserId():integer
++ logout():void </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>658</x>
-      <y>112</y>
-      <w>203</w>
-      <h>168</h>
+      <x>528</x>
+      <y>52</y>
+      <w>116</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>FileWithUsers
 --
@@ -75,18 +87,19 @@
 --
 + FileWithUsers()
 + addUsersToFile(): void
-+ saveAllUsersToFile(): void
++ saveTheNewPasswordInAFile: void
 + loadUsersFromFile(): vektor&lt;User&gt;users
-</panel_attributes>
++ downloadUserData(): User
++ replaceUserDataForDataLinesSeparatedByVerticalLines: string </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>322</x>
-      <y>266</y>
-      <w>182</w>
-      <h>112</h>
+      <x>336</x>
+      <y>140</y>
+      <w>104</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>BudgetManager
 --
@@ -98,54 +111,64 @@
 + addExpense():void
 + balanceCurrentMonths():void 
 + balanceOfThePreviousMonth():void 
-+ balanceSelectedPeriodOfTime():void</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>581</x>
-      <y>308</y>
-      <w>189</w>
-      <h>105</h>
-    </coordinates>
-    <panel_attributes>IncomeManager
---
-incomes:vector&lt;Income&gt;
-
---
-+ addIncome():void
-+ incomeCurrentMonths():void 
-+ incomeOfThePreviousMonth():void 
-+ incomeSelectedPeriodOfTime():void
++ balanceSelectedPeriodOfTime():void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>413</y>
-      <w>189</w>
-      <h>112</h>
+      <x>480</x>
+      <y>212</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>ExpenseManager
+    <panel_attributes>IncomeManager
 --
-- expenses:vector&lt;Expense&gt;
+-incomes:vector&lt;Income&gt;
+-fileWithIncomes: FileWithIncomes
+
 --
-+ addExpense():void
-+ expenseCurrentMonths():void 
-+ expenseOfThePreviousMonth():void 
-+ expenseSelectedPeriodOfTime():void</panel_attributes>
+- getIncomeId():integer
+- displayIncomeData(): void 
++ addIncome():void
++ incomeCurrentMonths():void 
++ incomeOfThePreviousMonth():void 
++ incomeSelectedPeriodOfTime():void
++ loadIncomesFromFile(): void 
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>511</x>
-      <y>462</y>
-      <w>126</w>
-      <h>91</h>
+      <x>328</x>
+      <y>224</y>
+      <w>108</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>ExpenseManager
+--
+- expenses:vector&lt;Expense&gt;
+- fileWithExpenses:FileWithExpenses
+--
+- addExpenseData():Expense
+- getExpenseId():integer
+- displayExpenseData ():void
++ addExpense():void
++ expenseCurrentMonths():void 
++ expenseOfThePreviousMonth():void 
++ expenseSelectedPeriodOfTime():void
++ loadExpensesFromFile(): void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>312</y>
+      <w>72</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>Income
 --
@@ -159,10 +182,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>105</x>
-      <y>448</y>
-      <w>140</w>
-      <h>98</h>
+      <x>212</x>
+      <y>244</y>
+      <w>80</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Expense
 --
@@ -176,15 +199,17 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>560</y>
-      <w>133</w>
-      <h>98</h>
+      <x>328</x>
+      <y>308</y>
+      <w>76</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>FileWithExpenses
 --
 - FILE_NAME_WITH_EXPENSES: string
 --
+- replaceIncomeDataForDataLinesSeparatedByVerticalLines():string 
+- downloadUserData: Expense 
 +saveExpenseToFile():bool
 +loadExpenseFromFile():vector&lt;Income&gt;</panel_attributes>
     <additional_attributes/>
@@ -192,10 +217,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>721</x>
-      <y>455</y>
-      <w>203</w>
-      <h>126</h>
+      <x>564</x>
+      <y>308</y>
+      <w>116</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>FileWithIncomes
 --
@@ -208,10 +233,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>245</x>
-      <y>203</y>
-      <w>154</w>
-      <h>63</h>
+      <x>292</x>
+      <y>104</y>
+      <w>88</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;200.0;70.0;200.0;10.0</additional_attributes>
@@ -219,10 +244,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>245</x>
-      <y>301</y>
-      <w>91</w>
-      <h>21</h>
+      <x>292</x>
+      <y>160</y>
+      <w>52</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
@@ -230,10 +255,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>371</y>
-      <w>21</w>
-      <h>56</h>
+      <x>376</x>
+      <y>200</y>
+      <w>12</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -241,43 +266,43 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>497</x>
-      <y>329</y>
-      <w>98</w>
-      <h>21</h>
+      <x>436</x>
+      <y>196</y>
+      <w>72</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0;160.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>406</y>
-      <w>21</w>
-      <h>63</h>
+      <x>564</x>
+      <y>268</y>
+      <w>12</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>406</y>
-      <w>21</w>
-      <h>70</h>
+      <x>476</x>
+      <y>268</y>
+      <w>12</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>406</x>
-      <y>518</y>
-      <w>21</w>
-      <h>56</h>
+      <x>384</x>
+      <y>284</y>
+      <w>12</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -285,10 +310,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
-      <y>476</y>
-      <w>84</w>
-      <h>21</h>
+      <x>288</x>
+      <y>260</y>
+      <w>48</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
@@ -296,10 +321,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>329</x>
-      <y>154</y>
-      <w>56</w>
-      <h>21</h>
+      <x>340</x>
+      <y>76</y>
+      <w>32</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
@@ -307,10 +332,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>168</y>
-      <w>98</w>
-      <h>21</h>
+      <x>480</x>
+      <y>84</y>
+      <w>56</w>
+      <h>12</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
@@ -318,10 +343,10 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>231</x>
-      <y>539</y>
-      <w>91</w>
-      <h>77</h>
+      <x>284</x>
+      <y>296</y>
+      <w>52</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
@@ -330,25 +355,164 @@ incomes:vector&lt;Income&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>497</y>
-      <w>105</w>
-      <h>28</h>
+      <x>508</x>
+      <y>332</y>
+      <w>64</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>322</x>
-      <y>70</y>
-      <w>385</w>
-      <h>63</h>
+      <x>336</x>
+      <y>28</y>
+      <w>220</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
     <additional_attributes>530.0;60.0;530.0;20.0;10.0;20.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>524</x>
+      <y>400</y>
+      <w>112</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>OperationsOnDates
+--
+--
+- conversionCharONInt(): void 
+- numberDaysOfTheMonth (): integer
++ todaysDate(): string 
++ checkTheCorrectnessOfTheDate(): bool
++ changeTheDateFormat(): string 
++ getNumberDaysOfTheMonth(): string 
++ downloadFirstDayOfTheMonth(): string 
++ downloadLastDayOfTheMonth(): string 
++ SetTheDateBackOneMonth(): string 
++ SetTheDateBackOneYear(): string 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>428</y>
+      <w>104</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>AuxiliartMethods
+--
+--
+- replaceCommaOnADot(): string
++ loadLine(): string 
++ conversionStringForInt(): integer
++ conversionDoubleForString(): string 
++ conversionIntForString(): string
++ conversionStringForDouble(): double </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>360</y>
+      <w>12</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>284</y>
+      <w>12</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>284</y>
+      <w>112</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0;260.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>436</x>
+      <y>240</y>
+      <w>116</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0;10.0;370.0;270.0;370.0;270.0;400.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>376</y>
+      <w>196</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>470.0;10.0;470.0;300.0;10.0;300.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>240</y>
+      <w>256</w>
+      <h>284</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>370.0;10.0;620.0;10.0;620.0;680.0;10.0;690.0;10.0;610.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>104</y>
+      <w>292</w>
+      <h>436</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;140.0;710.0;140.0;710.0;1060.0;10.0;1070.0;10.0;950.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>96</y>
+      <w>340</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>590.0;10.0;820.0;10.0;830.0;1120.0;10.0;1130.0;10.0;970.0</additional_attributes>
   </element>
 </diagram>

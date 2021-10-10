@@ -20,10 +20,7 @@ vector<Income> incomes;
 Income addIncomeData(int userId);
 
 int  getIncomeId();
-void  wypisz();
 void displayIncomeData (Income income);
-string SetTheDateBackOneMonth(string date);
-string SetTheDateBackOneYear(string date);
 
 public:
 
