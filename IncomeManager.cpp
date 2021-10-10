@@ -70,7 +70,7 @@ int IncomeManager :: getIncomeId() {
     if (incomes.empty())
         return 1;
     else
-        wypisz();
+
         return incomes.back().getId()+1;
 }
 void IncomeManager :: loadIncomesFromFile(int userId)
@@ -78,31 +78,12 @@ void IncomeManager :: loadIncomesFromFile(int userId)
   incomes.clear();
    incomes=fileWithIncomes.loadIncomesFromFile(userId);
    sort( incomes.begin(), incomes.end(), before() );
-     wypisz();
+
 
 }
-void IncomeManager  :: wypisz()
-{
 
-    for (int i=0; i<incomes.size(); i++)
-    {
-        cout<<incomes[i].getUserId()<<"  ";
-        cout<<incomes[i].getId()<<"  ";
-        cout<<incomes[i].getIncomeCategory()<<"  ";
-        cout<<OperationsOnDates::changeTheDateFormat(incomes[i].getDate())<<"  ";
-        cout<<incomes[i].getValue()<<endl;
-    }
-}
 void IncomeManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth)
 {
-   /*string currentDate="", firstDayOfTheMonth="", lastDayOfTheMonth="";
-    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0, numberOfHits=0;
-    double totalIncome=0;
-    currentDate=OperationsOnDates::todaysDate();
-    firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(currentDate);
-    lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(currentDate);
-    integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
-    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);*/
 
     double totalIncome=0;
  int numberOfHits=0;
@@ -132,16 +113,7 @@ void IncomeManager  ::displayIncomeData (Income income)
 }
 void IncomeManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth)
 {
-    /*string currentDate="", dateOfThePreviousMonth="", firstDayOfTheMonth="", lastDayOfTheMonth="";
-    int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0,numberOfHits=0;
-    double totalIncome=0;
 
-    currentDate=OperationsOnDates::todaysDate();
-    dateOfThePreviousMonth=OperationsOnDates::SetTheDateBackOneMonth(currentDate);
-    firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(dateOfThePreviousMonth);
-    lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(dateOfThePreviousMonth);
-    integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
-    integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);*/
      double totalIncome=0;
  int numberOfHits=0;
 

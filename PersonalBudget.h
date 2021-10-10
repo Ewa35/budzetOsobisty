@@ -11,6 +11,7 @@ class PersonalBudget{
 
 UserManager userManager;
 BudgetManager *budgetManager;
+
 public:
     PersonalBudget()
     {
