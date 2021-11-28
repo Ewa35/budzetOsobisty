@@ -10,26 +10,26 @@
 #include "AuxiliartMethods.h"
 using namespace std;
 
-class UserManager{
+class UserManager {
 
-vector <User> users;
-FileWithUsers fileWithUsers;
-int loggedUserId;
+    vector <User> users;
+    FileWithUsers fileWithUsers;
+    int loggedUserId;
 public:
-    UserManager()
-    {   loggedUserId=0;
+    UserManager(string userFileName):fileWithUsers(userFileName) {
+        loggedUserId=0;
         users=fileWithUsers.loadUsersFromFile();
     };
-void userRegistration();
-User giveDataNewUser();
-int downloadNewUserId();
-void loadUsersFromFile();
-void  wypisz();
-void loginUser();
-void changePasswordOfLoggedInUser();
-bool checkIfTheUserIsLoggedIn();
-int currentlyLoggedUserId();
-void logout();
+    void userRegistration();
+    User giveDataNewUser();
+    int downloadNewUserId();
+    void loadUsersFromFile();
+    void  wypisz();
+    void loginUser();
+    void changePasswordOfLoggedInUser();
+    bool checkIfTheUserIsLoggedIn();
+    int currentlyLoggedUserId();
+    void logout();
 
 
 

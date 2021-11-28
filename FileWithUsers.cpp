@@ -6,7 +6,7 @@ void FileWithUsers:: addUsersToFile(User user) {
     lineWithData=replaceUserDataForDataLinesSeparatedByVerticalLines(user);
     CMarkup xml;
 
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load( USER_FILE_NAME );
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Users");
@@ -14,7 +14,7 @@ void FileWithUsers:: addUsersToFile(User user) {
     xml.FindElem();
     xml.IntoElem();
     xml.AddElem( numberUser, lineWithData );
-    xml.Save("Users.xml");
+    xml.Save(USER_FILE_NAME);
 
 }
 
@@ -31,7 +31,7 @@ vector<User> FileWithUsers::loadUsersFromFile() {
     CMarkup xml;
     vector<User> users;
     User user;
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load( USER_FILE_NAME );
     xml.FindElem();
     xml.IntoElem();
     while (xml.FindElem()) {
@@ -75,17 +75,16 @@ User FileWithUsers:: downloadUserData(string dataFromTheFile) {
     }
     return user;
 }
-void FileWithUsers::saveTheNewPasswordInAFile(string lineWithData, int loggedUserId)
-{
-        User user;
-        string numberUser= "user"+AuxiliartMethods::conversionIntForString(loggedUserId);
-        CMarkup xml;
-        bool fileExists = xml.Load( "Users.xml" );
-        xml.FindElem();
+void FileWithUsers::saveTheNewPasswordInAFile(string lineWithData, int loggedUserId) {
+    User user;
+    string numberUser= "user"+AuxiliartMethods::conversionIntForString(loggedUserId);
+    CMarkup xml;
+    bool fileExists = xml.Load( USER_FILE_NAME );
+    xml.FindElem();
     xml.IntoElem();
     xml.FindElem(numberUser);
     xml.SetData(lineWithData);
     xml.OutOfElem();
-        xml.Save("Users.xml");
+    xml.Save(USER_FILE_NAME);
 }
 

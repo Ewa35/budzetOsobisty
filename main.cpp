@@ -3,19 +3,15 @@
 #include "PersonalBudget.h"
 using namespace std;
 
-int main()
-{
-    PersonalBudget personalBudget;
+int main() {
+    PersonalBudget personalBudget("Users.xml", "Expenses.xml", "Incomes.xml");
 
     char choiceFromTheMenu;
-        while (true)
-    {
-        if (personalBudget.checkIfTheUserIsLoggedIn()==false)
-        {
+    while (true) {
+        if (personalBudget.checkIfTheUserIsLoggedIn()==false) {
             choiceFromTheMenu = personalBudget.loginMenuOptions();
 
-            switch (choiceFromTheMenu)
-            {
+            switch (choiceFromTheMenu) {
             case '1':
                 personalBudget.userRegistration();
                 break;
@@ -32,14 +28,11 @@ int main()
             }
         }
 
-      else
-        {
-            if (personalBudget.checkIfTheUserIsLoggedIn())
-            {
+        else {
+            if (personalBudget.checkIfTheUserIsLoggedIn()) {
                 choiceFromTheMenu = personalBudget.userMenuOptions();
 
-                switch (choiceFromTheMenu)
-                {
+                switch (choiceFromTheMenu) {
                 case '1':
                     personalBudget.addIncome();
                     break;
@@ -63,11 +56,11 @@ int main()
                     break;
 
 
-            }
+                }
             }
         }
 
     }
 
     return 0;
-    }
+}

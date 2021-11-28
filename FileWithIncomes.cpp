@@ -1,36 +1,31 @@
 #include "FileWithIncomes.h"
 
-bool FileWithIncomes::saveIncomeToFile(Income income)
-{
+bool FileWithIncomes::saveIncomeToFile(Income income) {
 
     string userNumber="user"+AuxiliartMethods::conversionIntForString(income.getUserId());
     string incomeIdNumber="Income"+AuxiliartMethods::conversionIntForString(income.getId());
     string lineWithData="";
     lineWithData=replaceIncomeDataForDataLinesSeparatedByVerticalLines(income);
     CMarkup xml;
-    bool fileExists = xml.Load( "Incomes.xml" );
+    bool fileExists = xml.Load( INCOMES_FILE_NAME );
 
-    if (!fileExists)
-    {
+    if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Incomes");
     }
 
     xml.FindElem();
     xml.IntoElem();
-    if (!xml.FindElem(userNumber))
-    {
+    if (!xml.FindElem(userNumber)) {
         xml.AddElem(userNumber);
     }
     xml.IntoElem();
-
     xml.AddElem(incomeIdNumber, lineWithData);
     xml.OutOfElem();
-    xml.Save("Incomes.xml");
+    xml.Save(INCOMES_FILE_NAME);
     return true;
 }
-string FileWithIncomes::replaceIncomeDataForDataLinesSeparatedByVerticalLines(Income income)
-{
+string FileWithIncomes::replaceIncomeDataForDataLinesSeparatedByVerticalLines(Income income) {
     string lineWithData="";
     lineWithData+=AuxiliartMethods::conversionIntForString(income.getUserId())+"|";
     lineWithData+=AuxiliartMethods::conversionIntForString(income.getId())+"|";
@@ -39,26 +34,23 @@ string FileWithIncomes::replaceIncomeDataForDataLinesSeparatedByVerticalLines(In
     lineWithData+=AuxiliartMethods::conversionDoubleForString(income.getValue())+"|";
     return lineWithData;
 }
-vector<Income> FileWithIncomes::loadIncomesFromFile(int userId)
-{
+vector<Income> FileWithIncomes::loadIncomesFromFile(int userId) {
     CMarkup xml;
     vector<Income> incomes;
     Income income;
-    string u= "user"+AuxiliartMethods::conversionIntForString(userId);
+    string userNumber= "user"+AuxiliartMethods::conversionIntForString(userId);
 
-    bool fileExists = xml.Load( "Incomes.xml" );
+    bool fileExists = xml.Load( INCOMES_FILE_NAME );
     xml.FindElem();
     xml.IntoElem();
-    xml.FindElem(u);
+    xml.FindElem(userNumber);
     xml.IntoElem();
     while (xml.FindElem()) {
         MCD_STR dataFromTheFile = xml.GetData();
-       income=downloadUserData(dataFromTheFile);
-       cout<<dataFromTheFile<<endl;
+        income=downloadUserData(dataFromTheFile);
         incomes.push_back(income);
     }
     xml.OutOfElem();
-    //sort( incomes.begin(), incomes.end(), before() );
     return  incomes;
 }
 Income FileWithIncomes:: downloadUserData(string dataFromTheFile) {
