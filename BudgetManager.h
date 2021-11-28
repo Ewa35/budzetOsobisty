@@ -17,8 +17,8 @@ class BudgetManager {
     int LOGGED_USER_ID;
 
 public:
-    BudgetManager ( int loggedUserId)
-    :  LOGGED_USER_ID(loggedUserId) {
+    BudgetManager ( string expensesFileName, string incomesFileName, int loggedUserId)
+        :  expenseManager(expensesFileName), incomeManager (incomesFileName), LOGGED_USER_ID(loggedUserId) {
         incomeManager.loadIncomesFromFile( LOGGED_USER_ID);
         expenseManager.loadExpensesFromFile( LOGGED_USER_ID);
 

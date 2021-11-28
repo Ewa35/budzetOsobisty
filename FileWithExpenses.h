@@ -10,12 +10,14 @@ using namespace std;
 
 class FileWithExpenses {
 
-string replaceIncomeDataForDataLinesSeparatedByVerticalLines(Expense expense );
+    const string EXPENSES_FILE_NAME;
+    string replaceIncomeDataForDataLinesSeparatedByVerticalLines(Expense expense );
     Expense  downloadUserData(string dataFromTheFile);
 
 public:
-   bool saveExpenseToFile(Expense expense);
-   vector<Expense> loadExpensesFromFile(int userId);
+    FileWithExpenses (string expensesFileName): EXPENSES_FILE_NAME(expensesFileName) {};
+    bool saveExpenseToFile(Expense expense);
+    vector<Expense> loadExpensesFromFile(int userId);
 
 
 

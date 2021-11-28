@@ -10,15 +10,14 @@
 
 using namespace std;
 
-class AuxiliartMethods
-{
-   static string  replaceCommaOnADot(string value);
-   public:
+class AuxiliartMethods {
+    static string  replaceCommaOnADot(string value);
+public:
 
-   static string loadLine();
-   static int conversionStringForInt(string number);
-   static string conversionDoubleForString (double value);
-   static string  conversionIntForString(int number);
-   static double conversionStringForDouble(string value);
+    static string loadLine();
+    static int conversionStringForInt(string number);
+    static string conversionDoubleForString (double value);
+    static string  conversionIntForString(int number);
+    static double conversionStringForDouble(string value);
 };
 #endif

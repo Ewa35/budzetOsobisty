@@ -1,17 +1,20 @@
 #include "PersonalBudget.h"
 
 void PersonalBudget::userRegistration(){
+    system ("cls");
     userManager.userRegistration();
 }
 void PersonalBudget::loginUser(){
+    system ("cls");
 userManager.loginUser();
-//cout<<userManager.currentlyLoggedUserId()<<endl;
+
  if (userManager.currentlyLoggedUserId()>0)
     {
-        budgetManager= new BudgetManager (userManager.currentlyLoggedUserId());
+        budgetManager= new BudgetManager (EXPENSES_FILE_NAME, INCOMES_FILE_NAME, userManager.currentlyLoggedUserId());
     }
 }
 void PersonalBudget::changePasswordOfLoggedInUsser(){
+    system ("cls");
 userManager.changePasswordOfLoggedInUser();
 }
 void PersonalBudget::addIncome(){
@@ -43,7 +46,7 @@ if( userManager.checkIfTheUserIsLoggedIn())
 
 char PersonalBudget::loginMenuOptions()
 {
-    char choice;
+    char choice='0';
 
     system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;
@@ -59,7 +62,7 @@ char PersonalBudget::loginMenuOptions()
 }
 char PersonalBudget::userMenuOptions ()
 {
-    char choice;
+    char choice='0';
     system ("cls");
     cout << "    >>> MENU  U\276YTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
@@ -72,6 +75,7 @@ char PersonalBudget::userMenuOptions ()
     cout << "9. Wyloguj" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
+    cin.sync();
     cin>>choice;
     return choice;
 }

@@ -17,7 +17,7 @@ void User :: setLastName(string newLastName)
 }
 void User :: setLogin(string newLogin)
 {
-    login=newLogin;//zabezpieczenie ¿eby login siê nie powtarza³
+    login=newLogin;
 }
 void User :: setPassword(string newPassword)
 {

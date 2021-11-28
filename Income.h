@@ -5,24 +5,23 @@
 
 using namespace std;
 
-class Income{
- public:
- int userId;
- int id;
- string category;
-  int date;
-  double value;
+class Income {
+public:
+    int userId;
+    int id;
+    string category;
+    int date;
+    double value;
 
 public:
-     Income (int userId=0, int id=0, string category="", int date=0, double value=0)
-     {
-         this->userId=userId;
-         this->id=id;
-         this->category=category;
-         this->date=date;
-         this->value=value;
+    Income (int userId=0, int id=0, string category="", int date=0, double value=0) {
+        this->userId=userId;
+        this->id=id;
+        this->category=category;
+        this->date=date;
+        this->value=value;
 
-     };
+    };
 
 
     void setUserId (int newUserId);

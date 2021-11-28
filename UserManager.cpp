@@ -1,7 +1,6 @@
 #include "UserManager.h"
 
-void UserManager:: userRegistration()
-{
+void UserManager:: userRegistration() {
     User user = giveDataNewUser();
     users.push_back(user);
     fileWithUsers.addUsersToFile(user);
@@ -9,8 +8,7 @@ void UserManager:: userRegistration()
     system("pause");
 }
 
-User UserManager:: giveDataNewUser()
-{
+User UserManager:: giveDataNewUser() {
     User user;
     string name, lastName, login, password;
     user.setId(downloadNewUserId());
@@ -35,10 +33,8 @@ int UserManager :: downloadNewUserId() {
     else
         return users.back().getId() + 1;
 }
-void UserManager :: wypisz()
-{
-    for (int i=0; i<users.size(); i++)
-    {
+void UserManager :: wypisz() {
+    for (int i=0; i<users.size(); i++) {
         cout<<users[i].getId()<<endl;
         cout<<users[i].getName()<<endl;
         cout<<users[i].getLastName()<<endl;
@@ -46,24 +42,21 @@ void UserManager :: wypisz()
         cout<<users[i].getPassword()<<endl;
     }
 }
-void UserManager ::loadUsersFromFile()
-{
+void UserManager ::loadUsersFromFile() {
     users=fileWithUsers.loadUsersFromFile();
-   // wypisz();
+
 }
-void UserManager ::loginUser()
-{
+void UserManager ::loginUser() {
     User user;
     int amountOfUsers=0;
     string userLogin = "", userPassword = "";
-
     cout << endl << "Podaj login: ";
     userLogin = AuxiliartMethods::loadLine();
 
     for (int i=0; i<users.size(); i++) {
         if (users[i].getLogin() == userLogin) {
-                amountOfUsers++;
-            for (int numberOfAttempts = 3; numberOfAttempts > 0; numberOfAttempts--) {
+            amountOfUsers++;
+            for ( int numberOfAttempts = 3; numberOfAttempts > 0; numberOfAttempts--) {
                 cout << "Podaj haslo. Pozostalo prob: " << numberOfAttempts << ": ";
                 userPassword= AuxiliartMethods::loadLine();
 
@@ -72,52 +65,50 @@ void UserManager ::loginUser()
                     loggedUserId=users[i].getId();
                     system("pause");
                     numberOfAttempts=0;
-                }
-                else if (numberOfAttempts==0 && loggedUserId==0) {
+                } else if (numberOfAttempts==1 && loggedUserId==0) {
                     cout << "Wprowadzono 3 razy bledne haslo." << endl;
-                    system("pause");
                     loggedUserId=0;
+                    system("pause");
                 }
             }
         }
     }
-    if (amountOfUsers==0)
-            {
-                cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
-                system("pause");
-            }
+
+    if (amountOfUsers==0) {
+        cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+        system("pause");
+    }
 
 }
 void UserManager ::changePasswordOfLoggedInUser() {
-        string  newPassword = "";
-        string lineWithData="";
-        cout << "Podaj nowe haslo: ";
-        newPassword = AuxiliartMethods::loadLine();
+    string  newPassword = "";
+    string lineWithData="";
+    cout << "Podaj nowe haslo: ";
+    newPassword = AuxiliartMethods::loadLine();
 
-        for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
-                 if (itr->getId() == loggedUserId)
-                 {
-                     itr->setPassword(newPassword);
-                     cout << "Haslo zostalo zmienione." << endl << endl;
-                    system("pause");
-                    lineWithData=fileWithUsers.replaceUserDataForDataLinesSeparatedByVerticalLines(*itr);
-                 }
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        if (itr->getId() == loggedUserId) {
+            itr->setPassword(newPassword);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+            lineWithData=fileWithUsers.replaceUserDataForDataLinesSeparatedByVerticalLines(*itr);
         }
-
-
-
-        fileWithUsers.saveTheNewPasswordInAFile(lineWithData,loggedUserId);
     }
-bool UserManager :: checkIfTheUserIsLoggedIn(){
-if (loggedUserId>0)
-            return true;
-        else
-            return false;
+
+
+
+    fileWithUsers.saveTheNewPasswordInAFile(lineWithData,loggedUserId);
+}
+bool UserManager :: checkIfTheUserIsLoggedIn() {
+    if (loggedUserId>0)
+        return true;
+    else
+        return false;
 
 }
-int UserManager ::currentlyLoggedUserId(){
-return loggedUserId;
+int UserManager ::currentlyLoggedUserId() {
+    return loggedUserId;
 }
-void UserManager ::logout (){
+void UserManager ::logout () {
     loggedUserId=0;
 }

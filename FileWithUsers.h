@@ -12,15 +12,15 @@
 
 
 using namespace std;
-class FileWithUsers
-{
-
-    public:
+class FileWithUsers {
+    const string USER_FILE_NAME;
+public:
+    FileWithUsers (string userFileName):USER_FILE_NAME(userFileName) {};
     void addUsersToFile(User user);
-   vector<User> loadUsersFromFile();
+    vector<User> loadUsersFromFile();
     User downloadUserData(string dataFromTheFile);
-   void saveTheNewPasswordInAFile(string newPassword, int loggedUserId);
-   string replaceUserDataForDataLinesSeparatedByVerticalLines(User user);//do pomocniczych??
+    void saveTheNewPasswordInAFile(string newPassword, int loggedUserId);
+    string replaceUserDataForDataLinesSeparatedByVerticalLines(User user);//do pomocniczych??
 
 };
 #endif
