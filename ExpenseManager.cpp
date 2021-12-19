@@ -91,7 +91,7 @@ void ExpenseManager ::loadExpensesFromFile(int userId) {
     expenses=fileWithExpenses.loadExpensesFromFile(userId);
     sort( expenses.begin(), expenses.end(), before() );
 }
-void ExpenseManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+double ExpenseManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
 
     double totalExpense=0;
     int numberOfHits=0;
@@ -109,11 +109,12 @@ void ExpenseManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth,
         cout<<endl<<"Calkowita watrosc wydatkow w bierzacym miesiacu:   "<< totalExpense<<endl;
     }
     system("pause");
+    return totalExpense;
 }
 void ExpenseManager ::displayExpenseData (Expense expense) {
     cout<<endl<<"  kategoria wydatku:  "<< expense.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(expense.getDate())<<"  watrosc wydatku:  "<< expense.getValue();
 }
-void ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+double ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
 
     double totalExpense=0;
     int numberOfHits=0;
@@ -132,8 +133,9 @@ void ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth
     }
 
     system("pause");
+    return totalExpense;
 }
-void ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, int endDate) {
+double ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, int endDate) {
 
     int  numberOfHits=0;
     double totalExpense=0;
@@ -153,4 +155,5 @@ void ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, int 
     }
 
     system("pause");
+    return totalExpense;
 }
