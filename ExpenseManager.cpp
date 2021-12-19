@@ -154,6 +154,6 @@ double ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, in
         cout<<endl<<"Calkowita watrosc wydatkow: "<< totalExpense<<endl;
     }
 
-    system("pause");
+
     return totalExpense;
 }
