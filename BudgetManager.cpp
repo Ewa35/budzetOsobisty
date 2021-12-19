@@ -17,6 +17,7 @@ void BudgetManager::balanceCurrentMonths() {
 
     string currentDate="", firstDayOfTheMonth="", lastDayOfTheMonth="";
     int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    double sumExpenses=0, sumInocmes=0, differenceBetweenIncomeAndExpenses=0;
     currentDate=OperationsOnDates::todaysDate();
     firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(currentDate);
     lastDayOfTheMonth=OperationsOnDates::downloadLastDayOfTheMonth(currentDate);
@@ -24,15 +25,18 @@ void BudgetManager::balanceCurrentMonths() {
     integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
 
     cout<<endl<<"DOCHODY BIERZACEGO MIESIACA: "<<endl;
-    incomeManager.balanceForTheCurrentMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
+    sumInocmes=incomeManager.balanceForTheCurrentMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
     cout<<endl<<endl<<" WYDATKI BIERZACEGO MIESIACA: "<<endl;
-    expenseManager.balanceForTheCurrentMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
+    sumExpenses=expenseManager.balanceForTheCurrentMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
+    differenceBetweenIncomeAndExpenses=sumInocmes-sumExpenses;
+    cout<<endl<<endl<<"SALDO KONTA W BIERZACYM MIESIACU WYNOSI: "<<differenceBetweenIncomeAndExpenses<<endl;
 }
 void  BudgetManager::balanceOfThePreviousMonth() {
     system ("cls");
 
     string currentDate="", dateOfThePreviousMonth="", firstDayOfTheMonth="", lastDayOfTheMonth="";
     int integerFirstDayOfTheMonth=0, integerLastDayOfTheMonth=0;
+    double sumExpenses=0, sumInocmes=0, differenceBetweenIncomeAndExpenses=0;
     currentDate=OperationsOnDates::todaysDate();
     dateOfThePreviousMonth=OperationsOnDates::SetTheDateBackOneMonth(currentDate);
     firstDayOfTheMonth=OperationsOnDates::downloadFirstDayOfTheMonth(dateOfThePreviousMonth);
@@ -40,9 +44,11 @@ void  BudgetManager::balanceOfThePreviousMonth() {
     integerFirstDayOfTheMonth=AuxiliartMethods::conversionStringForInt(firstDayOfTheMonth);
     integerLastDayOfTheMonth=AuxiliartMethods::conversionStringForInt(lastDayOfTheMonth);
     cout<<endl<<"DOCHODY POPRZEDNIEGO MIESIACA: "<<endl;
-    incomeManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
+    sumInocmes=incomeManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
     cout<<endl<<"WYDATKI POPRZEDNIEGO MIESIACA: "<<endl;
-    expenseManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
+    sumExpenses=expenseManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
+     differenceBetweenIncomeAndExpenses=sumInocmes-sumExpenses;
+    cout<<endl<<endl<<"SALDO KONTA W POPRZEDNIM MIESIACU WYNOSI: "<<differenceBetweenIncomeAndExpenses<<endl;
 
 }
 void  BudgetManager::balanceSelectedPeriodOfTime() {
@@ -50,6 +56,7 @@ void  BudgetManager::balanceSelectedPeriodOfTime() {
 
     string startingDateOfTheBalance="", endDateOfTheBalance="";
     int startingDate=0, endDate=0;
+    double sumExpenses=0, sumInocmes=0, differenceBetweenIncomeAndExpenses=0;
 
     cout<<"Podaj date, od ktorej chcesz wyswietlic bilans w formacie rrrr-mm-dd"<<endl;
     cin>>startingDateOfTheBalance;
@@ -62,9 +69,11 @@ void  BudgetManager::balanceSelectedPeriodOfTime() {
             startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
             endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
             cout<<endl<<"PRZYCHODY DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< " DO "<< endDateOfTheBalance<<endl;
-            incomeManager.incomeBalanceForTheSelectedPeriod(startingDate, endDate);
+            sumInocmes=incomeManager.incomeBalanceForTheSelectedPeriod(startingDate, endDate);
             cout<<endl<<endl<<"WYDATKI DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< " DO "<< endDateOfTheBalance<<endl;
-            expenseManager.expenseBalanceForTheSelectedPeriod(startingDate, endDate);
+            sumExpenses=expenseManager.expenseBalanceForTheSelectedPeriod(startingDate, endDate);
+            differenceBetweenIncomeAndExpenses=sumInocmes-sumExpenses;
+    cout<<endl<<endl<<"SALDO KONTA W WYBRANYM PRZEDZIALE CZASU WYNOSI: "<<differenceBetweenIncomeAndExpenses<<endl;
 
         }
     } else {
