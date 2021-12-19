@@ -9,7 +9,7 @@
 	<cstdlib>
 	<string>
 
-1639343364 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.cpp
+1639945175 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.cpp
 	"BudgetManager.h"
 
 1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.h
@@ -18,7 +18,7 @@
 	"IncomeManager.h"
 	"ExpenseManager.h"
 
-1639343364 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.h
+1639944388 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -51,7 +51,7 @@
 	<string>
 	<afx.h>
 
-1639343364 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.h
+1639944388 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -74,7 +74,7 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.cpp
 	"Expense.h"
 
-1639343364 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
+1639944388 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
 	"ExpenseManager.h"
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithexpenses.cpp
@@ -101,7 +101,7 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\income.cpp
 	"Income.h"
 
-1639341597 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.cpp
+1639944388 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.cpp
 	"IncomeManager.h"
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp

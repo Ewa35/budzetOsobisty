@@ -68,17 +68,24 @@ void  BudgetManager::balanceSelectedPeriodOfTime() {
             system ("cls");
             startingDate=AuxiliartMethods::conversionStringForInt(startingDateOfTheBalance);
             endDate=AuxiliartMethods::conversionStringForInt(endDateOfTheBalance);
+            if (startingDate<endDate)
+            {
             cout<<endl<<"PRZYCHODY DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< " DO "<< endDateOfTheBalance<<endl;
             sumInocmes=incomeManager.incomeBalanceForTheSelectedPeriod(startingDate, endDate);
             cout<<endl<<endl<<"WYDATKI DLA PRZEDZIALU CZASU OD "<< startingDateOfTheBalance<< " DO "<< endDateOfTheBalance<<endl;
             sumExpenses=expenseManager.expenseBalanceForTheSelectedPeriod(startingDate, endDate);
             differenceBetweenIncomeAndExpenses=sumInocmes-sumExpenses;
     cout<<endl<<endl<<"SALDO KONTA W WYBRANYM PRZEDZIALE CZASU WYNOSI: "<<differenceBetweenIncomeAndExpenses<<endl;
+            }
+            else
+            {
+                cout<<" Wybrano bledny zakres dat"<<endl;
+            }
 
         }
     } else {
         cout<<"Podana data jest bledna. "<<endl;
+    }
         system ("pause");
         return ;
-    }
 }
