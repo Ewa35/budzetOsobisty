@@ -9,7 +9,7 @@
 	<cstdlib>
 	<string>
 
-1639945175 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.cpp
+1639946594 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.cpp
 	"BudgetManager.h"
 
 1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\budgetmanager.h
@@ -74,7 +74,7 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expense.cpp
 	"Expense.h"
 
-1639944388 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
+1639946594 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\expensemanager.cpp
 	"ExpenseManager.h"
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithexpenses.cpp
@@ -83,10 +83,10 @@
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithincomes.cpp
 	"FileWithIncomes.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
+1640796295 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.cpp
 	"FileWithUsers.h"
 
-1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
+1640119754 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\filewithusers.h
 	<iostream>
 	<sstream>
 	<fstream>
@@ -104,7 +104,7 @@
 1639944388 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\incomemanager.cpp
 	"IncomeManager.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
+1640117330 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\main.cpp
 	<iostream>
 	<cstdlib>
 	"PersonalBudget.h"
@@ -114,7 +114,7 @@
 	"BudgetManager.h"
 	"UserManager.h"
 
-1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
+1640807123 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.h
 	<iostream>
 	<vector>
 	<stdlib.h>
@@ -139,6 +139,6 @@
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\user.cpp
 	"User.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
+1640119710 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty\usermanager.cpp
 	"UserManager.h"
 

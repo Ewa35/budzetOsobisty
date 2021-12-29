@@ -7,6 +7,7 @@ int main() {
     PersonalBudget personalBudget("Users.xml", "Expenses.xml", "Incomes.xml");
 
     char choiceFromTheMenu;
+
     while (true) {
         if (personalBudget.checkIfTheUserIsLoggedIn()==false) {
             choiceFromTheMenu = personalBudget.loginMenuOptions();

@@ -15,10 +15,12 @@ class UserManager {
     vector <User> users;
     FileWithUsers fileWithUsers;
     int loggedUserId;
+    bool isThereSuchALogin( string login);
 public:
     UserManager(string userFileName):fileWithUsers(userFileName) {
         loggedUserId=0;
         users=fileWithUsers.loadUsersFromFile();
+        wypisz();
     };
     void userRegistration();
     User giveDataNewUser();

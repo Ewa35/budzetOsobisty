@@ -16,8 +16,10 @@ User UserManager:: giveDataNewUser() {
     cin>>name;
     cout<<"Podaj nazwisko"<<endl;
     cin>>lastName;
+    do{
     cout<<"Podaj login"<<endl;
     cin>>login;
+    }while (isThereSuchALogin(login));
     cout<<"Podaj haslo"<<endl;
     cin>>password;
     user.setName(name);
@@ -44,6 +46,7 @@ void UserManager :: wypisz() {
 }
 void UserManager ::loadUsersFromFile() {
     users=fileWithUsers.loadUsersFromFile();
+
 
 }
 void UserManager ::loginUser() {
@@ -81,23 +84,20 @@ void UserManager ::loginUser() {
 
 }
 void UserManager ::changePasswordOfLoggedInUser() {
-    string  newPassword = "";
+    string  newPassword = "", oldPassword="";
     string lineWithData="";
     cout << "Podaj nowe haslo: ";
     newPassword = AuxiliartMethods::loadLine();
 
     for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
         if (itr->getId() == loggedUserId) {
+            oldPassword=itr->getPassword();
             itr->setPassword(newPassword);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
-            lineWithData=fileWithUsers.replaceUserDataForDataLinesSeparatedByVerticalLines(*itr);
         }
     }
-
-
-
-    fileWithUsers.saveTheNewPasswordInAFile(lineWithData,loggedUserId);
+    fileWithUsers.saveTheNewPasswordInAFile(oldPassword,newPassword);
 }
 bool UserManager :: checkIfTheUserIsLoggedIn() {
     if (loggedUserId>0)
@@ -111,4 +111,14 @@ int UserManager ::currentlyLoggedUserId() {
 }
 void UserManager ::logout () {
     loggedUserId=0;
+}
+bool UserManager :: isThereSuchALogin( string login) {
+
+    for (int i=0; i<users.size(); i++) {
+        if (users[i].getLogin()==login) {
+            cout<<endl<<"Istnieje uzytkownik o takim loginie" <<endl;
+            return true;
+        }
+    }
+    return false;
 }
